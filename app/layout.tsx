@@ -24,7 +24,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Ohhoba",
+  title: "OhhHoBa",
   description:
     "An island dedicated to exploring playful languages, unconventional writing, and curious symbols.",
 
