@@ -31,7 +31,7 @@ export const metadata = {
   metadataBase: new URL("https://ohhoba.com"),
 
   openGraph: {
-    title: "Ohhoba",
+    title: "OhHoBa",
     description:
       "An island dedicated to exploring playful languages, unconventional writing, and curious symbols.",
     url: "https://ohhoba.com",
