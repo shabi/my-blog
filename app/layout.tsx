@@ -35,13 +35,13 @@ export const metadata = {
     description:
       "An island dedicated to exploring playful languages, unconventional writing, and curious symbols.",
     url: "https://ohhoba.com",
-    siteName: "Ohhoba",
+    siteName: "OhHoBa",
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Ohhoba",
+        alt: "OhHoBa",
       },
     ],
     locale: "en_US",
