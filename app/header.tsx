@@ -12,9 +12,7 @@ export function Header() {
     flex
     items-center
     py-4
-    mb-5
-    md:mb-10
-    bg-white/80
+    bg-[#fcfcfc]/80
     dark:bg-[#1C1C1C]/80
     backdrop-blur
   "
