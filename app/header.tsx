@@ -9,21 +9,16 @@ export function Header() {
     sticky
     top-0
     z-50
-    w-full
+    flex
+    items-center
+    py-4
+    -mx-6
+    px-6
     bg-[#fcfcfc]/80
     dark:bg-[#1C1C1C]/80
     backdrop-blur
   "
 >
-  <div
-    className="
-      max-w-2xl
-      mx-auto
-      flex
-      items-center
-      py-4
-    "
-  >
       <Logo />
 
       <nav className="text-xs grow justify-end items-center flex">
