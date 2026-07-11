@@ -4,7 +4,20 @@ import { Mail } from "lucide-react";
 
 export function Header() {
   return (
-    <header className="flex mb-5 md:mb-10 items-center">
+    <header
+  className="
+    sticky
+    top-0
+    z-50
+    flex
+    items-center
+    py-4
+    mb-5
+    md:mb-10
+    bg-white/80
+    backdrop-blur
+  "
+>
       <Logo />
 
       <nav className="text-xs grow justify-end items-center flex">
