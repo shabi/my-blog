@@ -14,7 +14,7 @@ export function Header() {
     py-4
     mb-5
     md:mb-10
-    bg-white
+    bg-white/50
 	dark:bg-black
     backdrop-blur
   "
