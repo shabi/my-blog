@@ -7,7 +7,7 @@ import { join } from "path";
 import commaNumber from "comma-number";
 
 // Image
-const rauchgPhoto = toArrayBuffer(
+const ohhobaPhoto = toArrayBuffer(
   readFileSync(join(process.cwd(), "public/images/gang.png"))
 );
 
@@ -33,23 +33,21 @@ export async function GET() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 tw="h-74"
-                alt="Guillermo Rauch"
+                alt="OhHoBa"
                 // @ts-ignore
-                src={rauchgPhoto}
+                src={ohhobaPhoto}
               />
             </div>
 
             <div tw="flex flex-col px-10 grow text-[28px] h-70 justify-center">
               <div tw="text-[64px] mb-7" style={font("Geist Medium")}>
-                Guillermo Rauch
+                OhHoBa
               </div>
               <div tw="flex mb-5" style={font("Geist Mono")}>
-                <span tw="text-gray-400 mr-3">&mdash;</span> CEO and Founder of
-                Vercel
+                <span tw="text-gray-400 mr-3">&mdash;</span> Experimental language & symbol exploration
               </div>
               <div tw="flex mb-5" style={font("Geist Mono")}>
-                <span tw="text-gray-400 mr-3">&mdash;</span> Creator of Next.js,
-                Socket.IO, Mongoose
+                <span tw="text-gray-400 mr-3">&mdash;</span> Exploring playful languages and curious symbols
               </div>
               <div tw="flex" style={font("Geist Mono")}>
                 <span tw="text-gray-400 mr-3">&mdash;</span> Lives in San
