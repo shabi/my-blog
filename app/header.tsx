@@ -34,20 +34,24 @@ export function Header() {
 
       <nav className="text-xs grow justify-end items-center flex">
 
-        <Link
-          href={isChinese ? "/" : "/zh"}
-          className="group p-2"
-        >
-          <span className="group-hover:bg-neutral-200 dark:group-hover:bg-neutral-700 rounded-xl py-0.5 px-1.5 inline-flex">
-            {isChinese ? "EN" : "中"}
-          </span>
-        </Link>
+       <Link
+  href={languagePath}
+  className="group p-2"
+>
+  <span className="group-hover:bg-neutral-200 dark:group-hover:bg-neutral-700 rounded-xl py-0.5 px-1.5 inline-flex">
+    {isChinese ? "EN" : "中"}
+  </span>
+</Link>
 
 
         <Link
-          href={isChinese ? "/zh/about" : "/about"}
-          className="group p-2"
-        >
+  href={
+    isChinese
+      ? pathname.replace(/^\/zh/, "") || "/about"
+      : `/zh${pathname}`
+  }
+  className="group p-2"
+>
           <span className="group-hover:bg-neutral-200 dark:group-hover:bg-neutral-700 rounded-xl py-0.5 px-1.5 inline-flex">
             {isChinese ? "关于" : "About"}
           </span>
