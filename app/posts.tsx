@@ -9,8 +9,11 @@ type SortSetting = ["date" | "views", "desc" | "asc"];
 
 const fetcher = (url: string) => fetch(url).then(res => res.json());
 
-export function Posts({ posts: initialPosts }) {
-  const { data: posts } = useSWR("/api/posts", fetcher, {
+export function Posts({
+  posts: initialPosts,
+  lang = "en",
+}) {
+  const { data: posts } = useSWR(`/api/posts?lang=${lang}`, fetcher, {
     fallbackData: initialPosts,
     refreshInterval: 5000,
   });
