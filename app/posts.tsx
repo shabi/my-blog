@@ -9,10 +9,6 @@ type SortSetting = ["date" | "views", "desc" | "asc"];
 
 const fetcher = (url: string) => fetch(url).then(res => res.json());
 
-export function Posts({
-  posts: initialPosts,
-  lang = "en",
-}) {
   export function Posts({
   posts: initialPosts,
   lang = "en",
@@ -42,7 +38,13 @@ function List({ posts }) {
 
         return (
           <li key={post.id} className="group">
-            <Link href={`/${new Date(post.date).getFullYear()}/${post.id}`}>
+            <Link
+ href={
+   lang === "zh"
+     ? `/zh/${new Date(post.date).getFullYear()}/${post.id}`
+     : `/${new Date(post.date).getFullYear()}/${post.id}`
+ }
+>
               <span
                 className={`flex
                 ${!firstOfYear ? "border-t-0" : ""}
