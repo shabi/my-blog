@@ -10,13 +10,16 @@ const fetcher = (url: string) => fetch(url).then(res => res.json());
 
 export function Header({ posts }: { posts: Post[] }) {
   const segments = useSelectedLayoutSegments();
+
   // segments can be:
   // date/post
   // lang/date/post
+
   const initialPost = posts.find(
     post => post.id === segments[segments.length - 1]
   );
-  const { data: post, mutate } = useSWR(
+
+  const { data: viewData, mutate } = useSWR(
     `/api/view?id=${initialPost?.id ?? ""}`,
     fetcher,
     {
@@ -26,6 +29,14 @@ export function Header({ posts }: { posts: Post[] }) {
   );
 
   if (initialPost == null) return <></>;
+
+  // 保留当前语言的标题和日期，只更新浏览量
+  const post = {
+    ...initialPost,
+    views: viewData?.views ?? initialPost.views,
+    viewsFormatted:
+      viewData?.viewsFormatted ?? initialPost.viewsFormatted,
+  };
 
   return (
     <>
@@ -49,10 +60,6 @@ export function Header({ posts }: { posts: Post[] }) {
             <span className="mx-2">|</span>
           </span>
 
-          {/* since we will pre-render the relative time, over time it
-           * will diverge with what the user relative time is, so we suppress the warning.
-           * In practice this is not an issue because we revalidate the entire page over time
-           * and because we will move this to a server component with template.tsx at some point */}
           <span suppressHydrationWarning={true}>
             {post.date} ({ago(post.date, true)} ago)
           </span>
@@ -76,17 +83,25 @@ function Views({ id, mutate, defaultValue }) {
 
   useEffect(() => {
     if ("development" === process.env.NODE_ENV) return;
+
     if (!didLogViewRef.current) {
-      const url = "/api/view?incr=1&id=" + encodeURIComponent(id);
+      const url =
+        "/api/view?incr=1&id=" + encodeURIComponent(id);
+
       fetch(url)
         .then(res => res.json())
         .then(obj => {
           mutate(obj);
         })
         .catch(console.error);
+
       didLogViewRef.current = true;
     }
   });
 
-  return <>{views != null ? <span>{views} views</span> : null}</>;
+  return (
+    <>
+      {views != null ? <span>{views} views</span> : null}
+    </>
+  );
 }
