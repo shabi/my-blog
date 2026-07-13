@@ -1,4 +1,5 @@
-import postsData from "./posts.json";
+import postsEn from "./posts.en.json";
+import postsZh from "./posts.zh.json";
 import redis from "./redis";
 import commaNumber from "comma-number";
 
@@ -15,10 +16,19 @@ type Views = {
   [key: string]: string;
 };
 
-export const getPosts = async () => {
-  const allViews: null | Views = redis ? await redis.hgetall("views") : null;
+export const getPosts = async (lang = "en") => {
+  const allViews: null | Views = redis
+    ? await redis.hgetall("views")
+    : null;
+
+  const postsData =
+    lang === "zh"
+      ? postsZh
+      : postsEn;
+
   const posts = postsData.posts.map((post): Post => {
     const views = Number(allViews?.[post.id] ?? 0);
+
     return {
       ...post,
       views,
