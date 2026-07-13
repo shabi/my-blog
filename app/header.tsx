@@ -45,17 +45,13 @@ export function Header() {
 
 
         <Link
-  href={
-    isChinese
-      ? pathname.replace(/^\/zh/, "") || "/about"
-      : `/zh${pathname}`
-  }
+  href={isChinese ? "/zh/about" : "/about"}
   className="group p-2"
 >
-          <span className="group-hover:bg-neutral-200 dark:group-hover:bg-neutral-700 rounded-xl py-0.5 px-1.5 inline-flex">
-            {isChinese ? "关于" : "About"}
-          </span>
-        </Link>
+  <span className="group-hover:bg-neutral-200 dark:group-hover:bg-neutral-700 rounded-xl py-0.5 px-1.5 inline-flex">
+    {isChinese ? "关于" : "About"}
+  </span>
+</Link>
 
 
         <a
