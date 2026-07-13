@@ -13,6 +13,10 @@ export function Posts({
   posts: initialPosts,
   lang = "en",
 }) {
+  export function Posts({
+  posts: initialPosts,
+  lang = "en",
+}) {
   const { data: posts } = useSWR(`/api/posts?lang=${lang}`, fetcher, {
     fallbackData: initialPosts,
     refreshInterval: 5000,
