@@ -1,4 +1,4 @@
-import postsEn from "./posts.en.json";
+import postsEn from "./posts.json";
 import postsZh from "./posts.zh.json";
 import redis from "./redis";
 import commaNumber from "comma-number";
