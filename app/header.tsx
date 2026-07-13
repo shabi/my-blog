@@ -10,6 +10,10 @@ export function Header() {
 
   const isChinese = pathname.startsWith("/zh");
 
+  const languagePath = isChinese
+    ? pathname.replace(/^\/zh/, "") || "/"
+    : `/zh${pathname}`;
+
   return (
     <header
       className="
