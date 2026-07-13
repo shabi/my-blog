@@ -5,5 +5,5 @@ export const revalidate = 300;
 
 export default async function Home() {
   const posts = await getPosts();
-  return <Posts posts={posts} />;
+  return <Posts posts={posts} lang="en" />;
 }
