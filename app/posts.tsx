@@ -1,15 +1,12 @@
 "use client";
 
-import { useMemo, useState } from "react";
 import Link from "next/link";
 import { Suspense } from "react";
 import useSWR from "swr";
 
-type SortSetting = ["date" | "views", "desc" | "asc"];
-
 const fetcher = (url: string) => fetch(url).then(res => res.json());
 
-  export function Posts({
+export function Posts({
   posts: initialPosts,
   lang = "en",
 }) {
@@ -21,35 +18,41 @@ const fetcher = (url: string) => fetch(url).then(res => res.json());
   return (
     <Suspense fallback={null}>
       <main className="max-w-2xl m-auto mb-10 text-sm">
-        <List posts={posts} />
+        <List posts={posts} lang={lang} />
       </main>
     </Suspense>
   );
 }
 
-function List({ posts }) {
+function List({
+  posts,
+  lang,
+}) {
   return (
     <ul>
       {posts.map((post, i: number) => {
         const year = getYear(post.date);
+
         const firstOfYear =
           !posts[i - 1] || getYear(posts[i - 1].date) !== year;
-        const lastOfYear = !posts[i + 1] || getYear(posts[i + 1].date) !== year;
+
+        const lastOfYear =
+          !posts[i + 1] || getYear(posts[i + 1].date) !== year;
 
         return (
           <li key={post.id} className="group">
             <Link
- href={
-   lang === "zh"
-     ? `/zh/${new Date(post.date).getFullYear()}/${post.id}`
-     : `/${new Date(post.date).getFullYear()}/${post.id}`
- }
->
+              href={
+                lang === "zh"
+                  ? `/zh/${new Date(post.date).getFullYear()}/${post.id}`
+                  : `/${new Date(post.date).getFullYear()}/${post.id}`
+              }
+            >
               <span
                 className={`flex
-                ${!firstOfYear ? "border-t-0" : ""}
-                ${lastOfYear ? "border-b-0" : ""}
-              `}
+                  ${!firstOfYear ? "border-t-0" : ""}
+                  ${lastOfYear ? "border-b-0" : ""}
+                `}
               >
                 <span
                   className={`py-2 flex grow items-center ${
