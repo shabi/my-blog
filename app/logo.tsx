@@ -13,12 +13,19 @@ export function Logo() {
   const isHome =
     pathname === "/" || pathname === "/zh";
 
+  function refreshHome() {
+    window.location.reload();
+  }
+
   return (
     <span className="text-md md:text-lg whitespace-nowrap font-bold">
       {isHome ? (
-        <span className="cursor-default pr-2">
+        <button
+          onClick={refreshHome}
+          className="cursor-pointer pr-2"
+        >
           OhHoBa
-        </span>
+        </button>
       ) : (
         <Link
           href={homePath}
