@@ -13,6 +13,9 @@ export function Logo() {
   const isHome =
     pathname === "/" || pathname === "/zh";
 
+  const logoClass =
+    "hover:bg-neutral-200 dark:hover:bg-neutral-700 p-2 rounded-2xl -ml-2 transition-[background-color]";
+
   function refreshHome() {
     window.location.reload();
   }
@@ -22,14 +25,14 @@ export function Logo() {
       {isHome ? (
         <button
           onClick={refreshHome}
-          className="cursor-pointer pr-2"
+          className={logoClass}
         >
           OhHoBa
         </button>
       ) : (
         <Link
           href={homePath}
-          className="hover:bg-neutral-200 dark:hover:bg-neutral-700 p-2 rounded-2xl -ml-2 transition-[background-color]"
+          className={logoClass}
         >
           OhHoBa
         </Link>
