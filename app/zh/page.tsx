@@ -9,8 +9,8 @@ export default async function Home() {
 
   return (
     <>
-      <ScrollTop />
       <Posts posts={posts} lang="zh" />
+      <ScrollTop />
     </>
   );
 }
