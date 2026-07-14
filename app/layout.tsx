@@ -31,12 +31,9 @@ export const metadata = {
 
   metadataBase: new URL("https://ohhoba.com"),
 
-  icons: {
-    icon: "/google-icon.png",
-  },
-
   openGraph: {
     title: "OhHoBa",
+
     description:
       "An island dedicated to exploring playful languages, unconventional writing, and curious symbols.",
 
