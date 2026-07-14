@@ -25,17 +25,25 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "OhHoBa",
+
   description:
     "An island dedicated to exploring playful languages, unconventional writing, and curious symbols.",
 
   metadataBase: new URL("https://ohhoba.com"),
 
+  icons: {
+    icon: "/google-icon.png",
+  },
+
   openGraph: {
     title: "OhHoBa",
     description:
       "An island dedicated to exploring playful languages, unconventional writing, and curious symbols.",
+
     url: "https://ohhoba.com",
+
     siteName: "OhHoBa",
+
     images: [
       {
         url: "/opengraph-image",
@@ -44,11 +52,10 @@ export const metadata = {
         alt: "OhHoBa",
       },
     ],
+
     locale: "en_US",
     type: "website",
   },
-
-
 };
 
 export const viewport = {
@@ -67,8 +74,8 @@ export default function RootLayout({
       suppressHydrationWarning={true}
     >
       <body className="dark:text-gray-100 max-w-2xl m-auto">
-           <main className="p-6 pt-3 md:pt-6 min-h-screen">
-           <Header/>
+        <main className="p-6 pt-3 md:pt-6 min-h-screen">
+          <Header />
           {children}
         </main>
 
