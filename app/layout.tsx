@@ -31,6 +31,12 @@ export const metadata = {
 
   metadataBase: new URL("https://ohhoba.com"),
 
+  verification: {
+    other: {
+      "msvalidate.01": "C4EC9949BE7CEE814CEC78AB96DC7527",
+    },
+  },
+
   openGraph: {
     title: "OhHoBa",
 
