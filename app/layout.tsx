@@ -37,6 +37,13 @@ export const metadata = {
     },
   },
 
+  alternates: {
+  languages: {
+    en: "/",
+    "zh-CN": "/zh",
+  },
+},
+  
   openGraph: {
     title: "OhHoBa",
 
