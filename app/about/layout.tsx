@@ -1,3 +1,6 @@
+import type { ReactNode } from "react";
+
+
 export const metadata = {
   title: "About OhHoBa | OhHoBa",
 
@@ -9,7 +12,7 @@ export const metadata = {
 export default function Layout({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   return (
     <>
