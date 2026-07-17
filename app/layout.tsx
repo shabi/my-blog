@@ -4,8 +4,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "./analytics";
 import { Header } from "./header";
 import { Footer } from "./footer";
-import { ScrollRestoration } from "./scroll-restoration";
-
 
 const geist = Geist({
   subsets: ["latin"],
@@ -96,9 +94,6 @@ export default function RootLayout({
     >
 
       <body className="dark:text-gray-100 max-w-2xl m-auto">
-
-        <ScrollRestoration />
-
 
         <script
           type="application/ld+json"
