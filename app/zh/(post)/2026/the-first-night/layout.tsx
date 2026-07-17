@@ -48,35 +48,77 @@ export default function Layout({
           __html: JSON.stringify({
             "@context": "https://schema.org",
 
-            "@type": "Article",
+            "@graph": [
 
-            "headline": "第一夜",
+              {
+                "@type": "Article",
 
-            "description":
-              "探索语言、符号与想象力的实验文章。",
+                "headline": "第一夜",
 
-            "author": {
-              "@type": "Organization",
-              "name": "OhHoBa",
-              "url": "https://ohhoba.com",
-            },
+                "description":
+                  "探索语言、符号与想象力的实验文章。",
 
-            "publisher": {
-              "@type": "Organization",
-              "name": "OhHoBa",
-              "url": "https://ohhoba.com",
-            },
+                "author": {
+                  "@type": "Organization",
 
-            "datePublished": "2026-06-01",
+                  "name": "OhHoBa",
 
-            "dateModified": "2026-06-01",
+                  "url": "https://ohhoba.com",
+                },
 
-            "mainEntityOfPage": {
-              "@type": "WebPage",
-              "@id":
-                "https://ohhoba.com/zh/2026/the-first-night",
-            },
+                "publisher": {
+                  "@type": "Organization",
 
+                  "name": "OhHoBa",
+
+                  "url": "https://ohhoba.com",
+                },
+
+                "datePublished": "2026-06-01",
+
+                "dateModified": "2026-06-01",
+
+                "mainEntityOfPage": {
+                  "@type": "WebPage",
+
+                  "@id":
+                    "https://ohhoba.com/zh/2026/the-first-night",
+                },
+              },
+
+
+              {
+                "@type": "BreadcrumbList",
+
+                "itemListElement": [
+
+                  {
+                    "@type": "ListItem",
+
+                    "position": 1,
+
+                    "name": "OhHoBa",
+
+                    "item":
+                      "https://ohhoba.com/zh",
+                  },
+
+
+                  {
+                    "@type": "ListItem",
+
+                    "position": 2,
+
+                    "name": "第一夜",
+
+                    "item":
+                      "https://ohhoba.com/zh/2026/the-first-night",
+                  },
+
+                ],
+              },
+
+            ],
           }),
         }}
       />
