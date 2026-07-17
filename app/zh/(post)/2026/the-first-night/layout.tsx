@@ -133,7 +133,7 @@ export default async function Layout({
 
                     "position": 1,
 
-                    "name": "OhHoBa",
+                    "name": "首页",
 
                     "item":
                       "https://ohhoba.com/zh",
