@@ -1,44 +1,72 @@
-export async function generateMetadata() {
-  return {
-    title: "第一夜 | OhHoBa",
+import { getPosts } from "../../../../get-posts";
 
-    description:
-      "探索语言、符号与想象力的实验文章。",
+
+export async function generateMetadata() {
+  const posts = await getPosts("zh");
+
+  const post = posts.find(
+    (post) => post.id === "the-first-night"
+  );
+
+  if (!post) {
+    return {};
+  }
+
+  return {
+    title: `${post.title} | OhHoBa`,
+
+    description: post.description,
 
     alternates: {
       languages: {
-        en: "https://ohhoba.com/2026/the-first-night",
-        "zh-CN": "https://ohhoba.com/zh/2026/the-first-night",
+        en: `https://ohhoba.com/2026/${post.id}`,
+        "zh-CN": `https://ohhoba.com/zh/2026/${post.id}`,
       },
     },
 
     openGraph: {
-      title: "第一夜",
+      title: post.title,
 
-      description:
-        "探索语言、符号与想象力的实验文章。",
+      description: post.description,
 
       type: "article",
 
-      url: "https://ohhoba.com/zh/2026/the-first-night",
+      url: `https://ohhoba.com/zh/2026/${post.id}`,
 
       siteName: "OhHoBa",
 
-      publishedTime: "2026-06-01",
+      publishedTime: post.date,
 
       authors: [
         "OhHoBa",
+      ],
+
+      images: [
+        {
+          url: post.image,
+        },
       ],
     },
   };
 }
 
 
-export default function Layout({
+export default async function Layout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+
+  const posts = await getPosts("zh");
+
+  const post = posts.find(
+    (post) => post.id === "the-first-night"
+  );
+
+  if (!post) {
+    return children;
+  }
+
 
   return (
     <>
@@ -53,13 +81,16 @@ export default function Layout({
               {
                 "@type": "Article",
 
-                "headline": "第一夜",
+                "headline": post.title,
 
-                "image": 
-                {"@type": "ImageObject","url": "https://ohhoba.com/opengraph-image",},
-                
-                "description":
-                  "探索语言、符号与想象力的实验文章。",
+                "description": post.description,
+
+                "image": {
+                  "@type": "ImageObject",
+
+                  "url":
+                    `https://ohhoba.com${post.image}`,
+                },
 
                 "author": {
                   "@type": "Organization",
@@ -77,15 +108,17 @@ export default function Layout({
                   "url": "https://ohhoba.com",
                 },
 
-               "datePublished": "2026-06-01T00:00:00+00:00",
+                "datePublished":
+                  `${post.date}T00:00:00+00:00`,
 
-                "dateModified": "2026-06-01T00:00:00+00:00",
-                
+                "dateModified":
+                  `${post.date}T00:00:00+00:00`,
+
                 "mainEntityOfPage": {
                   "@type": "WebPage",
 
                   "@id":
-                    "https://ohhoba.com/zh/2026/the-first-night",
+                    `https://ohhoba.com/zh/2026/${post.id}`,
                 },
               },
 
@@ -112,10 +145,10 @@ export default function Layout({
 
                     "position": 2,
 
-                    "name": "第一夜",
+                    "name": post.title,
 
                     "item":
-                      "https://ohhoba.com/zh/2026/the-first-night",
+                      `https://ohhoba.com/zh/2026/${post.id}`,
                   },
 
                 ],
