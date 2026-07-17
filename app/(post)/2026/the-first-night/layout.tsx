@@ -48,34 +48,77 @@ export default function Layout({
           __html: JSON.stringify({
             "@context": "https://schema.org",
 
-            "@type": "Article",
+            "@graph": [
 
-            "headline": "The First Night",
+              {
+                "@type": "Article",
 
-            "description":
-              "A small experiment exploring language, symbols, and imagination.",
+                "headline": "The First Night",
 
-            "author": {
-              "@type": "Organization",
-              "name": "OhHoBa",
-              "url": "https://ohhoba.com",
-            },
+                "description":
+                  "A small experiment exploring language, symbols, and imagination.",
 
-            "publisher": {
-              "@type": "Organization",
-              "name": "OhHoBa",
-              "url": "https://ohhoba.com",
-            },
+                "author": {
+                  "@type": "Organization",
 
-            "datePublished": "2026-06-01",
+                  "name": "OhHoBa",
 
-            "dateModified": "2026-06-01",
+                  "url": "https://ohhoba.com",
+                },
 
-            "mainEntityOfPage": {
-              "@type": "WebPage",
-              "@id":
-                "https://ohhoba.com/2026/the-first-night",
-            },
+                "publisher": {
+                  "@type": "Organization",
+
+                  "name": "OhHoBa",
+
+                  "url": "https://ohhoba.com",
+                },
+
+                "datePublished": "2026-06-01",
+
+                "dateModified": "2026-06-01",
+
+                "mainEntityOfPage": {
+                  "@type": "WebPage",
+
+                  "@id":
+                    "https://ohhoba.com/2026/the-first-night",
+                },
+              },
+
+
+              {
+                "@type": "BreadcrumbList",
+
+                "itemListElement": [
+
+                  {
+                    "@type": "ListItem",
+
+                    "position": 1,
+
+                    "name": "OhHoBa",
+
+                    "item":
+                      "https://ohhoba.com",
+                  },
+
+
+                  {
+                    "@type": "ListItem",
+
+                    "position": 2,
+
+                    "name": "The First Night",
+
+                    "item":
+                      "https://ohhoba.com/2026/the-first-night",
+                  },
+
+                ],
+              },
+
+            ],
           }),
         }}
       />
