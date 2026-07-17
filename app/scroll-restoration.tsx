@@ -1,12 +1,9 @@
 "use client";
 
-import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
 
 export function ScrollRestoration() {
-  const pathname = usePathname();
-
 
   useEffect(() => {
     const position = sessionStorage.getItem(
@@ -15,20 +12,20 @@ export function ScrollRestoration() {
 
 
     if (position) {
-      requestAnimationFrame(() => {
-        window.scrollTo(
-          0,
-          Number(position)
-        );
+
+      sessionStorage.removeItem(
+        "scroll-position"
+      );
 
 
-        sessionStorage.removeItem(
-          "scroll-position"
-        );
+      window.scrollTo({
+        top: Number(position),
+        behavior: "instant",
       });
+
     }
 
-  }, [pathname]);
+  }, []);
 
 
   return null;
