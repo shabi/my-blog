@@ -3,28 +3,17 @@
 import { Logo } from "./logo";
 import Link from "next/link";
 import { Mail } from "lucide-react";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 
 export function Header() {
   const pathname = usePathname();
-  const router = useRouter();
 
   const isChinese = pathname.startsWith("/zh");
 
   const languagePath = isChinese
     ? pathname.replace(/^\/zh/, "") || "/"
     : `/zh${pathname}`;
-
-
-  function switchLanguage() {
-  sessionStorage.setItem(
-    "scroll-position",
-    String(window.scrollY)
-  );
-
-  window.location.href = languagePath;
-}
 
 
   return (
@@ -39,7 +28,7 @@ export function Header() {
         -mx-6
         px-6
         bg-[#fcfcfc]/80
-        dark:bg-[#1C1C1C]/80
+        dark:bg-[#1C/1C1C]/80
         backdrop-blur
       "
     >
@@ -49,14 +38,15 @@ export function Header() {
       <nav className="text-xs grow justify-end items-center flex">
 
 
-        <button
-          onClick={switchLanguage}
+        <Link
+          href={languagePath}
+          scroll={false}
           className="group p-2"
         >
           <span className="group-hover:bg-neutral-200 dark:group-hover:bg-neutral-700 rounded-xl py-0.5 px-1.5 inline-flex">
             {isChinese ? "EN" : "中"}
           </span>
-        </button>
+        </Link>
 
 
         <Link
