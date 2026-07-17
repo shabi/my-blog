@@ -28,7 +28,7 @@ export function Header() {
         -mx-6
         px-6
         bg-[#fcfcfc]/80
-        dark:bg-[#1C/1C1C]/80
+        dark:bg-[#1C1C1C]/80
         backdrop-blur
       "
     >
