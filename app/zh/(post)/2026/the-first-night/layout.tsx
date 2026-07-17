@@ -55,6 +55,9 @@ export default function Layout({
 
                 "headline": "第一夜",
 
+                "image": 
+                {"@type": "ImageObject","url": "https://ohhoba.com/opengraph-image",},
+                
                 "description":
                   "探索语言、符号与想象力的实验文章。",
 
@@ -74,10 +77,10 @@ export default function Layout({
                   "url": "https://ohhoba.com",
                 },
 
-                "datePublished": "2026-06-01",
+               "datePublished": "2026-06-01T00:00:00+00:00",
 
-                "dateModified": "2026-06-01",
-
+                "dateModified": "2026-06-01T00:00:00+00:00",
+                
                 "mainEntityOfPage": {
                   "@type": "WebPage",
 
