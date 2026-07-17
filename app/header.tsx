@@ -3,16 +3,51 @@
 import { Logo } from "./logo";
 import Link from "next/link";
 import { Mail } from "lucide-react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export function Header() {
   const pathname = usePathname();
+  const router = useRouter();
 
   const isChinese = pathname.startsWith("/zh");
 
   const languagePath = isChinese
     ? pathname.replace(/^\/zh/, "") || "/"
     : `/zh${pathname}`;
+
+
+  function switchLanguage() {
+    const scrollPosition = window.scrollY;
+
+    sessionStorage.setItem(
+      "language-scroll-position",
+      String(scrollPosition)
+    );
+
+    router.push(languagePath, {
+      scroll: false,
+    });
+  }
+
+
+  useEffect(() => {
+    const savedPosition = sessionStorage.getItem(
+      "language-scroll-position"
+    );
+
+    if (savedPosition) {
+      window.scrollTo(
+        0,
+        Number(savedPosition)
+      );
+
+      sessionStorage.removeItem(
+        "language-scroll-position"
+      );
+    }
+  }, [pathname]);
+
 
   return (
     <header
@@ -34,44 +69,56 @@ export function Header() {
 
       <nav className="text-xs grow justify-end items-center flex">
 
-       <Link
-  href={languagePath}
-  scroll={false}
-  className="group p-2"
->
-  <span className="group-hover:bg-neutral-200 dark:group-hover:bg-neutral-700 rounded-xl py-0.5 px-1.5 inline-flex">
-    {isChinese ? "EN" : "中"}
-  </span>
-</Link>
+
+        <button
+          onClick={switchLanguage}
+          className="group p-2"
+        >
+          <span className="group-hover:bg-neutral-200 dark:group-hover:bg-neutral-700 rounded-xl py-0.5 px-1.5 inline-flex">
+            {isChinese ? "EN" : "中"}
+          </span>
+        </button>
 
 
         <Link
-  href={isChinese ? "/zh/about" : "/about"}
-  className="group p-2"
->
-  <span className="group-hover:bg-neutral-200 dark:group-hover:bg-neutral-700 rounded-xl py-0.5 px-1.5 inline-flex">
-    {isChinese ? "关于" : "About"}
-  </span>
-</Link>
+          href={isChinese ? "/zh/about" : "/about"}
+          className="group p-2"
+        >
+          <span className="group-hover:bg-neutral-200 dark:group-hover:bg-neutral-700 rounded-xl py-0.5 px-1.5 inline-flex">
+            {isChinese ? "关于" : "About"}
+          </span>
+        </Link>
 
 
         <a
           href="mailto:admin@ohhoba.com"
           target="_blank"
-          className="group inline-flex items-center p-2 rounded-sm transition-[background-color] whitespace-nowrap -mr-2"
+          className="
+            group
+            inline-flex
+            items-center
+            p-2
+            rounded-sm
+            transition-[background-color]
+            whitespace-nowrap
+            -mr-2
+          "
         >
           <span className="group-hover:bg-neutral-200 dark:group-hover:bg-neutral-700 rounded-xl py-0.5 px-1.5 inline-flex items-center gap-1">
             <EmailIcon style={{ marginRight: 4 }} />
+
             <span>
               {isChinese ? "联系我" : "Contact me"}
             </span>
           </span>
         </a>
 
+
       </nav>
     </header>
   );
 }
+
 
 function EmailIcon(props: any) {
   return (
