@@ -36,6 +36,7 @@ export function Header() {
 
        <Link
   href={languagePath}
+  scroll={false}
   className="group p-2"
 >
   <span className="group-hover:bg-neutral-200 dark:group-hover:bg-neutral-700 rounded-xl py-0.5 px-1.5 inline-flex">
