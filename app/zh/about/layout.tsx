@@ -1,15 +1,18 @@
+import type { ReactNode } from "react";
+
+
 export const metadata = {
-  title: "About OhHoBa | OhHoBa",
+  title: "关于 OhHoBa | OhHoBa",
 
   description:
-    "Learn about OhHoBa, a creative space exploring playful languages, unconventional writing, and curious symbols.",
+    "了解 OhHoBa，一个探索趣味语言、非传统文字以及独特符号的创意空间。",
 };
 
 
 export default function Layout({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   return (
     <>
@@ -21,9 +24,9 @@ export default function Layout({
 
             "@type": "AboutPage",
 
-            "name": "About OhHoBa",
+            "name": "关于 OhHoBa",
 
-            "url": "https://ohhoba.com/about",
+            "url": "https://ohhoba.com/zh/about",
 
             "about": {
               "@type": "Organization",
