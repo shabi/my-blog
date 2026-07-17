@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 
 export const metadata = {
   title: "About OhHoBa | OhHoBa",
-
+  
   description:
     "Learn about OhHoBa, a creative space exploring playful languages, unconventional writing, and curious symbols.",
 };
