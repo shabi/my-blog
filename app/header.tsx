@@ -18,15 +18,13 @@ export function Header() {
 
 
   function switchLanguage() {
-    sessionStorage.setItem(
-      "scroll-position",
-      String(window.scrollY)
-    );
+  sessionStorage.setItem(
+    "scroll-position",
+    String(window.scrollY)
+  );
 
-    router.push(languagePath, {
-      scroll: false,
-    });
-  }
+  window.location.href = languagePath;
+}
 
 
   return (
