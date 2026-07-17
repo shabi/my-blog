@@ -84,6 +84,19 @@ export default function RootLayout({
       suppressHydrationWarning={true}
     >
       <body className="dark:text-gray-100 max-w-2xl m-auto">
+        <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "OhHoBa",
+      "url": "https://ohhoba.com",
+      "description":
+        "An island dedicated to exploring playful languages, unconventional writing, and curious symbols."
+    }),
+  }}
+/>
         <main className="p-6 pt-3 md:pt-6 min-h-screen">
           <Header />
           {children}
