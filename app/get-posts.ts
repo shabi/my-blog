@@ -5,9 +5,19 @@ import commaNumber from "comma-number";
 
 export type Post = {
   id: string;
+
   date: string;
+
   title: string;
+
+  description: string;
+
+  image: string;
+
+  tags: string[];
+
   views: number;
+
   viewsFormatted: string;
 };
 
