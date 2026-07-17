@@ -4,7 +4,7 @@ import { Logo } from "./logo";
 import Link from "next/link";
 import { Mail } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect } from "react";
+
 
 export function Header() {
   const pathname = usePathname();
@@ -18,35 +18,15 @@ export function Header() {
 
 
   function switchLanguage() {
-    const scrollPosition = window.scrollY;
-
     sessionStorage.setItem(
-      "language-scroll-position",
-      String(scrollPosition)
+      "scroll-position",
+      String(window.scrollY)
     );
 
     router.push(languagePath, {
       scroll: false,
     });
   }
-
-
-  useEffect(() => {
-    const savedPosition = sessionStorage.getItem(
-      "language-scroll-position"
-    );
-
-    if (savedPosition) {
-      window.scrollTo(
-        0,
-        Number(savedPosition)
-      );
-
-      sessionStorage.removeItem(
-        "language-scroll-position"
-      );
-    }
-  }, [pathname]);
 
 
   return (
@@ -66,6 +46,7 @@ export function Header() {
       "
     >
       <Logo />
+
 
       <nav className="text-xs grow justify-end items-center flex">
 
@@ -105,11 +86,13 @@ export function Header() {
           "
         >
           <span className="group-hover:bg-neutral-200 dark:group-hover:bg-neutral-700 rounded-xl py-0.5 px-1.5 inline-flex items-center gap-1">
+
             <EmailIcon style={{ marginRight: 4 }} />
 
             <span>
               {isChinese ? "联系我" : "Contact me"}
             </span>
+
           </span>
         </a>
 
