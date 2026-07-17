@@ -21,6 +21,14 @@ export async function generateMetadata() {
       type: "article",
 
       url: "https://ohhoba.com/2026/the-first-night",
+
+      siteName: "OhHoBa",
+
+      publishedTime: "2026-06-01",
+
+      authors: [
+        "OhHoBa",
+      ],
     },
   };
 }
@@ -31,5 +39,48 @@ export default function Layout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+
+            "@type": "Article",
+
+            "headline": "The First Night",
+
+            "description":
+              "A small experiment exploring language, symbols, and imagination.",
+
+            "author": {
+              "@type": "Organization",
+              "name": "OhHoBa",
+              "url": "https://ohhoba.com",
+            },
+
+            "publisher": {
+              "@type": "Organization",
+              "name": "OhHoBa",
+              "url": "https://ohhoba.com",
+            },
+
+            "datePublished": "2026-06-01",
+
+            "dateModified": "2026-06-01",
+
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id":
+                "https://ohhoba.com/2026/the-first-night",
+            },
+          }),
+        }}
+      />
+
+      {children}
+    </>
+  );
 }
