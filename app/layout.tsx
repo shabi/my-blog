@@ -5,6 +5,7 @@ import { Analytics } from "./analytics";
 import { Header } from "./header";
 import { Footer } from "./footer";
 
+
 const geist = Geist({
   subsets: ["latin"],
   variable: "--font-geist-sans",
@@ -26,7 +27,7 @@ const geistMono = Geist_Mono({
 
 
 export const metadata = {
-  title: "Notes",
+  title: "GANG",
 
   description:
     "Personal notes on design, technology, experiments, and ideas.",
@@ -41,30 +42,22 @@ export const metadata = {
   },
 
 
-  alternates: {
-    languages: {
-      en: "/",
-      "zh-CN": "/zh",
-    },
-  },
-
-
   openGraph: {
-    title: "Notes",
+    title: "GANG",
 
     description:
       "Personal notes on design, technology, experiments, and ideas.",
 
     url: "https://blog.ohhoba.com",
 
-    siteName: "Notes",
+    siteName: "GANG",
 
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Notes",
+        alt: "GANG",
       },
     ],
 
@@ -103,10 +96,11 @@ export default function RootLayout({
               "@context": "https://schema.org",
 
               "@graph": [
+
                 {
                   "@type": "WebSite",
 
-                  "name": "Notes",
+                  "name": "GANG",
 
                   "url": "https://blog.ohhoba.com",
 
@@ -114,16 +108,18 @@ export default function RootLayout({
                     "Personal notes on design, technology, experiments, and ideas.",
                 },
 
+
                 {
                   "@type": "Person",
 
-                  "name": "Notes",
+                  "name": "GANG",
 
                   "url": "https://blog.ohhoba.com",
 
                   "description":
                     "A personal blog for recording thoughts, experiments, and discoveries.",
                 },
+
               ],
             }),
           }}
