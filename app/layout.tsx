@@ -26,12 +26,12 @@ const geistMono = Geist_Mono({
 
 
 export const metadata = {
-  title: "OhHoBa",
+  title: "Notes",
 
   description:
-    "An island dedicated to exploring playful languages, unconventional writing, and curious symbols.",
+    "Personal notes on design, technology, experiments, and ideas.",
 
-  metadataBase: new URL("https://ohhoba.com"),
+  metadataBase: new URL("https://blog.ohhoba.com"),
 
 
   verification: {
@@ -50,21 +50,21 @@ export const metadata = {
 
 
   openGraph: {
-    title: "OhHoBa",
+    title: "Notes",
 
     description:
-      "An island dedicated to exploring playful languages, unconventional writing, and curious symbols.",
+      "Personal notes on design, technology, experiments, and ideas.",
 
-    url: "https://ohhoba.com",
+    url: "https://blog.ohhoba.com",
 
-    siteName: "OhHoBa",
+    siteName: "Notes",
 
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "OhHoBa",
+        alt: "Notes",
       },
     ],
 
@@ -95,6 +95,7 @@ export default function RootLayout({
 
       <body className="dark:text-gray-100 max-w-2xl m-auto">
 
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -105,23 +106,23 @@ export default function RootLayout({
                 {
                   "@type": "WebSite",
 
-                  "name": "OhHoBa",
+                  "name": "Notes",
 
-                  "url": "https://ohhoba.com",
+                  "url": "https://blog.ohhoba.com",
 
                   "description":
-                    "An island dedicated to exploring playful languages, unconventional writing, and curious symbols.",
+                    "Personal notes on design, technology, experiments, and ideas.",
                 },
 
                 {
-                  "@type": "Organization",
+                  "@type": "Person",
 
-                  "name": "OhHoBa",
+                  "name": "Notes",
 
-                  "url": "https://ohhoba.com",
+                  "url": "https://blog.ohhoba.com",
 
                   "description":
-                    "OhHoBa is a creative space exploring playful languages, unconventional writing, and curious symbols.",
+                    "A personal blog for recording thoughts, experiments, and discoveries.",
                 },
               ],
             }),
