@@ -2,7 +2,6 @@
 
 import { Logo } from "./logo";
 import Link from "next/link";
-import { Mail } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 
@@ -60,8 +59,7 @@ export function Header() {
 
 
         <a
-          href="mailto:admin@ohhoba.com"
-          target="_blank"
+          href="https://ohhoba.com"
           className="
             group
             inline-flex
@@ -75,10 +73,8 @@ export function Header() {
         >
           <span className="group-hover:bg-neutral-200 dark:group-hover:bg-neutral-700 rounded-xl py-0.5 px-1.5 inline-flex items-center gap-1">
 
-            <EmailIcon style={{ marginRight: 4 }} />
-
             <span>
-              {isChinese ? "联系我" : "Contact me"}
+              OhHoBa ↗
             </span>
 
           </span>
@@ -87,16 +83,5 @@ export function Header() {
 
       </nav>
     </header>
-  );
-}
-
-
-function EmailIcon(props: any) {
-  return (
-    <Mail
-      size={12}
-      strokeWidth={2}
-      {...props}
-    />
   );
 }
