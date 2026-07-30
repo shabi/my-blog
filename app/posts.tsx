@@ -24,6 +24,7 @@ export function Posts({
   );
 }
 
+
 function List({
   posts,
   lang,
@@ -59,11 +60,13 @@ function List({
                     !firstOfYear ? "ml-10 md:ml-14" : ""
                   }`}
                 >
+
                   {firstOfYear && (
                     <span className="w-10 md:w-14 inline-block self-start shrink-0 text-neutral-500 text-xs dark:text-neutral-500 mt-0.5">
                       {year}
                     </span>
                   )}
+
 
                   <span className="grow dark:text-gray-100">
                     <span className="group-hover:bg-neutral-200 dark:group-hover:bg-neutral-700 transition-all rounded-xl py-0.5 px-1.5">
@@ -71,9 +74,7 @@ function List({
                     </span>
                   </span>
 
-                  <span className="text-neutral-500 dark:text-neutral-500 text-xs mt-0.5">
-                    {post.viewsFormatted}
-                  </span>
+
                 </span>
               </span>
             </Link>
@@ -83,6 +84,7 @@ function List({
     </ul>
   );
 }
+
 
 function getYear(date: string) {
   return new Date(date).getFullYear();
