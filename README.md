@@ -1,6 +1,5 @@
-# OhHoBa
+# GANG's Blog
 
-A creative space exploring playful languages,
-unconventional writing, and curious symbols.
+A Blog just for the record.
 
 Based on open-source software licensed under MIT.
