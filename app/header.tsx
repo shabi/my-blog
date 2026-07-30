@@ -59,18 +59,20 @@ export function Header() {
 
 
         <a
-          href="https://ohhoba.com"
-          className="
-            group
-            inline-flex
-            items-center
-            p-2
-            rounded-sm
-            transition-[background-color]
-            whitespace-nowrap
-            -mr-2
-          "
-        >
+  href="https://ohhoba.com"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+    group
+    inline-flex
+    items-center
+    p-2
+    rounded-sm
+    transition-[background-color]
+    whitespace-nowrap
+    -mr-2
+  "
+>
           <span className="group-hover:bg-neutral-200 dark:group-hover:bg-neutral-700 rounded-xl py-0.5 px-1.5 inline-flex items-center gap-1">
 
             <span>
