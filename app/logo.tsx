@@ -27,14 +27,14 @@ export function Logo() {
           onClick={refreshHome}
           className={logoClass}
         >
-          Notes
+          GANG
         </button>
       ) : (
         <Link
           href={homePath}
           className={logoClass}
         >
-          Notes
+          GANG
         </Link>
       )}
     </span>
