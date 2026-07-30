@@ -6,10 +6,12 @@ import { readFileSync } from "fs";
 import { join } from "path";
 import commaNumber from "comma-number";
 
+
 // Image
 const ohhobaPhoto = toArrayBuffer(
   readFileSync(join(process.cwd(), "public/images/gang.png"))
 );
+
 
 // Fonts
 const fontsDir = join(process.cwd(), "fonts");
@@ -20,6 +22,7 @@ const geistSansMedium = readFileSync(join(fontsDir, "geist-medium.ttf"));
 
 const geistMono = readFileSync(join(fontsDir, "geist-mono-regular.ttf"));
 
+
 export async function GET() {
   const posts = await getPosts();
   const viewsSum = posts.reduce((sum, post) => sum + post.views, 0);
@@ -27,35 +30,52 @@ export async function GET() {
   return new ImageResponse(
     (
       <div tw="flex p-10 h-full w-full bg-white flex-col" style={font("Geist")}>
+
         <main tw="flex grow pt-4 w-full justify-center items-center">
+
           <div tw="flex flex-row">
+
             <div tw="flex">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 tw="h-74"
-                alt="OhHoBa"
+                alt="Notes"
                 // @ts-ignore
                 src={ohhobaPhoto}
               />
             </div>
 
+
             <div tw="flex flex-col px-10 grow text-[28px] h-70 justify-center">
+
               <div tw="text-[64px] mb-7" style={font("Geist Medium")}>
-                OhHoBa
+                Notes
               </div>
+
+
               <div tw="flex mb-5" style={font("Geist Mono")}>
-                <span tw="text-gray-400 mr-3">&mdash;</span> Experimental language & symbol exploration
+                <span tw="text-gray-400 mr-3">&mdash;</span>
+                Personal notes on design and technology
               </div>
+
+
               <div tw="flex mb-5" style={font("Geist Mono")}>
-                <span tw="text-gray-400 mr-3">&mdash;</span> Exploring playful languages and curious symbols
+                <span tw="text-gray-400 mr-3">&mdash;</span>
+                Experiments, ideas and creative explorations
               </div>
+
+
               <div tw="flex" style={font("Geist Mono")}>
-                <span tw="text-gray-400 mr-3">&mdash;</span> Lives in San
-                Francisco, CA
+                <span tw="text-gray-400 mr-3">&mdash;</span>
+                A personal archive by OhHoBa
               </div>
+
             </div>
+
           </div>
+
         </main>
+
 
         <footer
           tw="flex w-full justify-center text-2xl text-gray-500 mb-6"
@@ -63,11 +83,13 @@ export async function GET() {
         >
           {posts.length} posts / {commaNumber(viewsSum)} views
         </footer>
+
       </div>
     ),
     {
       width: 1200,
       height: 630,
+
       fonts: [
         {
           name: "Geist",
@@ -89,10 +111,12 @@ export async function GET() {
   );
 }
 
+
 // lil helper for more succinct styles
 function font(fontFamily: string) {
   return { fontFamily };
 }
+
 
 function toArrayBuffer(buffer) {
   return buffer.buffer.slice(
