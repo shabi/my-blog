@@ -6,7 +6,6 @@ import { readFileSync } from "fs";
 import { join } from "path";
 import commaNumber from "comma-number";
 
-
 // Image
 const ohhobaPhoto = toArrayBuffer(
   readFileSync(join(process.cwd(), "public/images/gang.png"))
