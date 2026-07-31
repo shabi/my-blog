@@ -63,10 +63,9 @@ function List({
 
 
         const category =
-          categoryNames[post.category]?.[
-            post.lang === "zh" ? "zh" : "en"
-          ] || post.category;
-
+  categoryNames[post.category]?.[
+    post.lang === "zh" ? "zh" : "en"
+  ] || "Essays";
 
 
         const previousCategory =
