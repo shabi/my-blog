@@ -2,6 +2,7 @@ import posts from "./posts.json";
 import redis from "./redis";
 import commaNumber from "comma-number";
 
+
 export type Post = {
   id: string;
 
@@ -15,31 +16,47 @@ export type Post = {
 
   tags: string[];
 
+  lang: "zh" | "en";
+
+  category: "tech" | "notes" | "stories";
+
   views: number;
 
   viewsFormatted: string;
 };
 
-//shape of the HSET in redis
+
+// shape of the HSET in redis
 type Views = {
   [key: string]: string;
 };
 
-export const getPosts = async (lang = "en") => {
+
+export const getPosts = async () => {
+
   const allViews: null | Views = redis
     ? await redis.hgetall("views")
     : null;
 
+
   const postsData = posts;
 
+
   const posts = postsData.posts.map((post): Post => {
+
     const views = Number(allViews?.[post.id] ?? 0);
+
 
     return {
       ...post,
+
       views,
+
       viewsFormatted: commaNumber(views),
     };
+
   });
+
+
   return posts;
 };
