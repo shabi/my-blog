@@ -27,7 +27,6 @@ const categoryNames = {
 };
 
 
-
 export function Posts({
   posts: initialPosts,
 }) {
