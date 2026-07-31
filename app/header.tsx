@@ -2,7 +2,7 @@
 
 import { Logo } from "./logo";
 import Link from "next/link";
-import { Mail } from "lucide-react";
+import { Mail, ExternalLink } from "lucide-react";
 
 
 export function Header() {
@@ -55,12 +55,14 @@ export function Header() {
 
           <span className="group-hover:bg-neutral-200 dark:group-hover:bg-neutral-700 rounded-xl py-0.5 px-1.5 inline-flex items-center gap-1">
 
+            <span>
+              Contact me
+            </span>
+
             <Mail
               size={12}
               strokeWidth={2}
             />
-
-            Contact me
 
           </span>
 
@@ -83,9 +85,16 @@ export function Header() {
           "
         >
 
-          <span className="group-hover:bg-neutral-200 dark:group-hover:bg-neutral-700 rounded-xl py-0.5 px-1.5 inline-flex">
+          <span className="group-hover:bg-neutral-200 dark:group-hover:bg-neutral-700 rounded-xl py-0.5 px-1.5 inline-flex items-center gap-1">
 
-            OhHoBa ↗
+            <span>
+              OhHoBa
+            </span>
+
+            <ExternalLink
+              size={12}
+              strokeWidth={2}
+            />
 
           </span>
 
