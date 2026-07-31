@@ -16,9 +16,9 @@ export type Post = {
 
   tags: string[];
 
-  lang: "zh" | "en";
+  lang: string;
 
-  category: "tech" | "essays" | "stories";
+  category: string;
 
   views: number;
 
