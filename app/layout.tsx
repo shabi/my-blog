@@ -30,7 +30,7 @@ export const metadata = {
   title: "GANG",
 
   description:
-    "Personal notes on design, technology, experiments, and ideas.",
+    "GANG is one person. Or perhaps many. A collection of thoughts, experiments, and discoveries exploring design, technology, and imagination.",
 
   metadataBase: new URL("https://blog.ohhoba.com"),
 
@@ -46,7 +46,7 @@ export const metadata = {
     title: "GANG",
 
     description:
-      "Personal notes on design, technology, experiments, and ideas.",
+      "GANG is one person. Or perhaps many. Exploring design, technology, creativity, and imagination.",
 
     url: "https://blog.ohhoba.com",
 
@@ -93,6 +93,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
+
               "@context": "https://schema.org",
 
               "@graph": [
@@ -105,7 +106,7 @@ export default function RootLayout({
                   "url": "https://blog.ohhoba.com",
 
                   "description":
-                    "Personal notes on design, technology, experiments, and ideas.",
+                    "GANG is one person. Or perhaps many. A collection of thoughts, experiments, and discoveries exploring design, technology, and imagination.",
                 },
 
 
@@ -117,10 +118,11 @@ export default function RootLayout({
                   "url": "https://blog.ohhoba.com",
 
                   "description":
-                    "A personal blog for recording thoughts, experiments, and discoveries.",
+                    "GANG is a creator exploring the connections between design, technology, creativity, and imagination.",
                 },
 
               ],
+
             }),
           }}
         />
