@@ -15,9 +15,9 @@ const categoryNames = {
     en: "Tech",
   },
 
-  notes: {
+  essays: {
     zh: "随笔",
-    en: "Notes",
+    en: "Essays",
   },
 
   stories: {
