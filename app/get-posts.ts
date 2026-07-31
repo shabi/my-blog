@@ -1,4 +1,4 @@
-import posts from "./posts.json";
+import postsData from "./posts.json";
 import redis from "./redis";
 import commaNumber from "comma-number";
 
@@ -18,7 +18,7 @@ export type Post = {
 
   lang: "zh" | "en";
 
-  category: "tech" | "notes" | "stories";
+  category: "tech" | "essays" | "stories";
 
   views: number;
 
@@ -39,9 +39,6 @@ export const getPosts = async () => {
     : null;
 
 
-  const postsData = posts;
-
-
   const posts = postsData.posts.map((post): Post => {
 
     const views = Number(allViews?.[post.id] ?? 0);
@@ -59,4 +56,5 @@ export const getPosts = async () => {
 
 
   return posts;
+
 };
